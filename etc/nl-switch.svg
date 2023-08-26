@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="512px"
+   height="512px"
+   id="svg4"
+   sodipodi:docname="nl-switch.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="322.08714"
+     inkscape:cy="341.88613"
+     inkscape:window-width="2560"
+     inkscape:window-height="1416"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <g
+     id="g448"
+     transform="matrix(8.9738802,0,0,8689.034,-31.164168,-30644.053)">
+    <circle
+       cx="32"
+       cy="32"
+       r="17"
+       fill="#eeeeec"
+       class="fill-efcc00"
+       id="circle295" />
+    <path
+       d="m 32,5 v 6 m 0,42 v 6 M 59,32 H 53 M 11,32 H 5 m 46.09,-19.09 -4.24,4.24 m -29.7,29.7 -4.24,4.24 m 38.18,0 -4.24,-4.24 m -29.7,-29.7 -4.24,-4.24"
+       fill="none"
+       stroke="#eeeeec"
+       stroke-linecap="round"
+       stroke-miterlimit="10"
+       stroke-width="3px"
+       class="stroke-efcc00"
+       id="path297" />
+  </g>
+  <path
+     d="M 256.00046,18.285758 V 493.71413 m 0,-109.71421 c -70.76592,0 -128.00031,-57.23438 -128.00031,-127.99997 0,-70.76576 57.23439,-127.99997 128.00031,-127.99997 M 87.954393,87.954224 126.72015,126.71998 M 18.285758,255.99995 h 54.857276 m 14.811359,168.04556 38.765757,-38.76559 m 129.28031,-192.3657 a 127.85396,127.85366 0 0 1 111.36015,-64.91424 c 2.92576,0 5.66864,0.18243 8.5944,0.36639 a 96.000182,95.999958 0 0 0 44.8,180.84556 c 29.25728,0 55.40592,-13.16576 72.96016,-33.82848 -9.50865,61.62272 -62.3544,108.61712 -126.35456,108.61712 -47.72575,0 -89.41727,-26.14865 -111.36015,-64.91441"
+     fill="none"
+     stroke="#eeeeec"
+     stroke-width="36.5716"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-miterlimit="10"
+     class="stroke-000000"
+     id="path2" />
+</svg>
