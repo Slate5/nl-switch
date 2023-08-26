@@ -1,0 +1,66 @@
+#!/bin/bash
+
+CONF_DIR=~/.config/xfce4/panel/
+IS_NL_ON_FILE=~/.night_light_on
+MONITORS="$(xrandr --listactivemonitors | awk '/\s*[0-9]+: / {print $NF}')"
+NIGHT_GAMMA='1.0:0.86860704:0.73688797'
+NIGHT_BRIGHTNESS='0.88'
+DAY_GAMMA='1:1:1'
+DAY_BRIGHTNESS='1'
+
+if [ ! -d ${CONF_DIR} ]; then
+  printf -- '\033[1;31mXFCE panel dir not found at: %s\n\033[m' "${CONF_DIR}"
+  exit 2
+elif [ "${XDG_SESSION_TYPE}" != x11 ]; then
+  printf -- '\033[1;31mThe tool works only on X11\n\033[m' "${CONF_DIR}"
+  exit 95
+fi
+
+change_launcher_icon() {
+  local launchers launcher
+
+  launchers="$(grep -lRF 'Exec=nl-switch' ${CONF_DIR})"
+
+  for launcher in ${launchers}; do
+    sed -i "s,Icon=.*,Icon=${1}," ${launcher}
+  done
+}
+
+change_monitor_temp() {
+  local monitor xrandr_args
+
+  for monitor in ${MONITORS}; do
+    xrandr_args+="--output ${monitor} --gamma ${1} --brightness ${2} "
+  done
+
+  xrandr ${xrandr_args} &>/dev/null
+}
+
+if [ "${1}" = "--autostart" ]; then
+  while [ -e ${IS_NL_ON_FILE} ] && (( ++c < 150 )); do
+
+    if xrandr --verbose | grep -q '^\s*Gamma:\s\+1.0:1.0:1.0'; then
+      change_monitor_temp "${NIGHT_GAMMA}" "${NIGHT_BRIGHTNESS}"
+
+      if [ ! -e ${IS_NL_ON_FILE} ]; then
+        change_monitor_temp "${DAY_GAMMA}" "${DAY_BRIGHTNESS}"
+        break
+      fi
+
+      (( c /= 2 ))
+    fi
+
+    sleep 0.1
+  done
+elif [ -e ${IS_NL_ON_FILE} ]; then
+  change_monitor_temp "${DAY_GAMMA}" "${DAY_BRIGHTNESS}"
+  change_launcher_icon nl-switch-off
+
+  rm -f ${IS_NL_ON_FILE}
+else
+  change_monitor_temp "${NIGHT_GAMMA}" "${NIGHT_BRIGHTNESS}"
+  change_launcher_icon nl-switch-on
+
+  touch ${IS_NL_ON_FILE}
+fi
+
